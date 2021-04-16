@@ -12,6 +12,7 @@ public class Product {
     @Column(name = "id")
     private int productID;
     private BigDecimal price;
+    private String title;
     private int serialNumber;
     @Column(name = "img_URL_1")
     private String imgURL1;
