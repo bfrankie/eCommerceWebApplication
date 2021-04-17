@@ -28,6 +28,7 @@ public class Product {
     private String imgURL4;
     @Column(name = "img_URL_5")
     private String imgURL5;
+    @Column(length = 100000)
     private String details;
     private int quantity;
 
