@@ -2,11 +2,13 @@ package com.capstone3.api.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Transactional
 @Table(name = "product")
 @Getter @Setter
 public class Product {

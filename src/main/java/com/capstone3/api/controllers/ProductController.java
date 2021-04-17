@@ -8,10 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
@@ -24,33 +25,33 @@ public class ProductController {
         return productService.getProducts();
     }
 
-    @GetMapping(path="/products-by-title")
+    @GetMapping(path="/product-by-title/{title}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Product> productByTitle(String title) {
+    public Optional<Product> productByTitle(@PathVariable String title) {
         return productService.getProductByTitle(title);
     }
 
-    @GetMapping(path="/products-by-details")
+    @GetMapping(path="/product-by-details/{details}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Product> productByDetails(String details) {
+    public List<Optional<Product>> productByDetails(@PathVariable String details) {
         return productService.getProductByDetails(details);
     }
 
-    @GetMapping(path="/products-by-category")
+    @GetMapping(path="/product-by-category/{categoryName}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Product> productByCategory(String category) {
-        return productService.getProductByCategory(category);
+    public List<Optional<Product>> productByCategory(@PathVariable String categoryName) {
+        return productService.getProductByCategory(categoryName);
     }
 
-    @GetMapping(path="/products-by-serial-number")
+    @GetMapping(path="/product-by-serial-number/{serialNumber}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Product> productBySerialNumber(int serialNumber) {
+    public Optional<Product> productBySerialNumber(@PathVariable int serialNumber) {
         return productService.getProductBySerialNumber(serialNumber);
     }
 
-    @GetMapping(path="/products-by-price")
+    @GetMapping(path="/product-by-price/{price}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Product> productByPrice(BigDecimal price) {
+    public Optional<List<Product>> productByPrice(@PathVariable BigDecimal price) {
         return productService.getProductByPrice(price);
     }
 
@@ -60,21 +61,21 @@ public class ProductController {
         return productService.createProduct(p);
     }
 
-    @PutMapping(path = "/update-product-by-serial-number")
+    @PutMapping(path = "/update-product-by-serial-number/{serialNumber}")
     @ResponseStatus(HttpStatus.OK)
-    public Product updateProductBySerialNumber(@PathVariable int serialNumber, Product p) {
+    public Product updateProductBySerialNumber(@PathVariable int serialNumber, @RequestBody Product p) {
         return productService.updateProduct(serialNumber, p);
     }
 
-    @DeleteMapping(path = "/delete-product-by-title")
+    @DeleteMapping(path = "/delete-product-by-title/{title}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProductByTitle(String title) {
+    public void deleteProductByTitle(@PathVariable String title) {
         productService.deleteProduct(title);
     }
 
-    @DeleteMapping(path = "/delete-product-by-serial-number")
+    @DeleteMapping(path = "/delete-product-by-serial-number/{serialNumber}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProductBySerialNumber(int serialNumber) {
+    public void deleteProductBySerialNumber(@PathVariable int serialNumber) {
         productService.deleteProduct(serialNumber);
     }
 

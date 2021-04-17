@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,19 +30,56 @@ public class ProductService {
         return productRepo.findByTitle(title);
     }
 
-    public Optional<Product> getProductByDetails(String details) {
-        return productRepo.findByDetails(details);
+    public List<Optional<Product>> getProductByDetails(String details) {
+
+        List<Product> productList = getProducts();
+        List<String> wordsToSearchFor = new ArrayList<>();
+        List<String> wordsToSearchAgainst = new ArrayList<>();
+        List<Optional<Product>> matchingProducts = new ArrayList<>();
+
+        //Get list of words in string details
+        wordsToSearchFor.addAll(Arrays.asList(details.split(" ")));
+
+        for(Product p : productList) {
+            wordsToSearchAgainst.clear();
+            //Get list of words in details of each product
+            for (String word : p.getDetails().split(" ")) {
+                wordsToSearchAgainst.add(word.toLowerCase());
+            }
+
+            //Compare, and if there is a match add product to new product list
+            for(String word : wordsToSearchFor) {
+                if(wordsToSearchAgainst.contains(word.toLowerCase())) {
+                    matchingProducts.add(Optional.of(p));
+                    return matchingProducts;
+                }
+            }
+        }
+
+        if(matchingProducts.isEmpty()) {
+            return null;
+        }
+        return matchingProducts;
     }
 
-    public Optional<Product> getProductByCategory(String category) {
-        return productRepo.findByCategory(category);
-}
+    public List<Optional<Product>> getProductByCategory(String categoryName) {
+        List<Product> productList = getProducts();
+        List<Optional<Product>> matchingProducts = new ArrayList<>();
+
+        for(Product p : productList) {
+            if(categoryName.equalsIgnoreCase(p.getCategory().getCategoryName())) {
+                matchingProducts.add(Optional.of(p));
+                return matchingProducts;
+            }
+        }
+        return matchingProducts;
+    }
 
     public Optional<Product> getProductBySerialNumber(int serialNumber) {
         return productRepo.findBySerialNumber(serialNumber);
     }
 
-    public Optional<Product> getProductByPrice(BigDecimal price) {
+    public Optional<List<Product>> getProductByPrice(BigDecimal price) {
         return productRepo.findByPrice(price);
     }
 
@@ -54,17 +92,17 @@ public class ProductService {
 
         if(oProduct.isPresent()) {
             Product updatedProduct = oProduct.get();
-            String updatedTitle = updatedProduct.getTitle();
-            BigDecimal updatedPrice = updatedProduct.getPrice();
-            int updatedSerialNumber = updatedProduct.getSerialNumber();
-            String updatedImgURL1 = updatedProduct.getImgURL1();
-            String updatedImgURL2 = updatedProduct.getImgURL2();
-            String updatedImgURL3 = updatedProduct.getImgURL3();
-            String updatedImgURL4 = updatedProduct.getImgURL4();
-            String updatedImgURL5 = updatedProduct.getImgURL5();
-            String updatedDetails = updatedProduct.getDetails();
-            Category updatedCategory = updatedProduct.getCategory();
-            int updatedQuantity = updatedProduct.getQuantity();
+            String updatedTitle = product.getTitle();
+            BigDecimal updatedPrice = product.getPrice();
+            int updatedSerialNumber = product.getSerialNumber();
+            String updatedImgURL1 = product.getImgURL1();
+            String updatedImgURL2 = product.getImgURL2();
+            String updatedImgURL3 = product.getImgURL3();
+            String updatedImgURL4 = product.getImgURL4();
+            String updatedImgURL5 = product.getImgURL5();
+            String updatedDetails = product.getDetails();
+            Category updatedCategory = product.getCategory();
+            int updatedQuantity = product.getQuantity();
 
             updatedProduct.setTitle(updatedTitle);
             updatedProduct.setPrice(updatedPrice);
