@@ -5,6 +5,7 @@ import com.capstone3.api.entities.Product;
 import com.capstone3.api.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -67,12 +68,14 @@ public class ProductController {
         return productService.updateProduct(serialNumber, p);
     }
 
+    @Transactional
     @DeleteMapping(path = "/delete-product-by-title/{title}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProductByTitle(@PathVariable String title) {
         productService.deleteProduct(title);
     }
 
+    @Transactional
     @DeleteMapping(path = "/delete-product-by-serial-number/{serialNumber}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProductBySerialNumber(@PathVariable int serialNumber) {

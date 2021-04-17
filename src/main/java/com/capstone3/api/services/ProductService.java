@@ -39,6 +39,7 @@ public class ProductService {
 
         //Get list of words in string details
         wordsToSearchFor.addAll(Arrays.asList(details.split("[\\W]")));
+        wordsToSearchFor.replaceAll(String::toLowerCase);
 
         for(Product p : productList) {
             wordsToSearchAgainst.clear();
@@ -47,7 +48,7 @@ public class ProductService {
                 wordsToSearchAgainst.add(word.toLowerCase());
             }
 
-            //Compare, and if there is a match add product to new product list
+            //Compare, if there is a match then add product to new product list
             if(wordsToSearchAgainst.containsAll(wordsToSearchFor)) {
                     matchingProducts.add(Optional.of(p));
             }
