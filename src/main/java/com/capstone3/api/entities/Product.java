@@ -1,10 +1,14 @@
 package com.capstone3.api.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
+@Getter @Setter
 public class Product {
 
     @Id

@@ -14,6 +14,9 @@ public interface ProductRepo extends CrudRepository<Product, Long> {
     @Override
     Iterable<Product> findAll();
 
+    @Override
+    Optional<Product> findById(Long aLong);
+
     Optional<Product> findByTitle(String title);
 
     Optional<Product> findByDetails(String details);
