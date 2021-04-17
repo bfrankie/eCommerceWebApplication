@@ -38,21 +38,18 @@ public class ProductService {
         List<Optional<Product>> matchingProducts = new ArrayList<>();
 
         //Get list of words in string details
-        wordsToSearchFor.addAll(Arrays.asList(details.split(" ")));
+        wordsToSearchFor.addAll(Arrays.asList(details.split("[\\W]")));
 
         for(Product p : productList) {
             wordsToSearchAgainst.clear();
             //Get list of words in details of each product
-            for (String word : p.getDetails().split(" ")) {
+            for (String word : p.getDetails().split("[\\W]")) {
                 wordsToSearchAgainst.add(word.toLowerCase());
             }
 
             //Compare, and if there is a match add product to new product list
-            for(String word : wordsToSearchFor) {
-                if(wordsToSearchAgainst.contains(word.toLowerCase())) {
+            if(wordsToSearchAgainst.containsAll(wordsToSearchFor)) {
                     matchingProducts.add(Optional.of(p));
-                    return matchingProducts;
-                }
             }
         }
 
@@ -69,7 +66,6 @@ public class ProductService {
         for(Product p : productList) {
             if(categoryName.equalsIgnoreCase(p.getCategory().getCategoryName())) {
                 matchingProducts.add(Optional.of(p));
-                return matchingProducts;
             }
         }
         return matchingProducts;
