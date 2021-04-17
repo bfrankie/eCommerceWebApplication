@@ -24,13 +24,10 @@ public class ProductService {
         productIterable.forEach(productList::add);
         return productList;
     }
-//
-//    Optional<Product> findByTitle(String title);
 
     public Optional<Product> getProductByTitle(String title) {
         return productRepo.findByTitle(title);
     }
-//    Optional<Product> findByDetails(String details);
 
     public Optional<Product> getProductByDetails(String details) {
         return productRepo.findByDetails(details);
