@@ -3,6 +3,7 @@ package com.capstone3.api.services;
 
 import com.capstone3.api.entities.Category;
 import com.capstone3.api.entities.Product;
+import com.capstone3.api.repos.CategoryRepo;
 import com.capstone3.api.repos.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class ProductService {
 
     @Autowired
     ProductRepo productRepo;
+
+    @Autowired
+    CategoryRepo categoryRepo;
 
     public List<Product> getProducts() {
         Iterable<Product> productIterable = productRepo.findAll();
@@ -110,8 +114,14 @@ public class ProductService {
             updatedProduct.setImgURL4(updatedImgURL4);
             updatedProduct.setImgURL5(updatedImgURL5);
             updatedProduct.setDetails(updatedDetails);
-            updatedProduct.setCategory(updatedCategory);
             updatedProduct.setQuantity(updatedQuantity);
+
+            if(categoryRepo.findById(updatedCategory.getCategoryID()).isPresent()) {
+                updatedProduct.setCategory(updatedCategory);
+            } else {
+                updatedProduct.setCategory(null);
+            }
+
             return productRepo.save(updatedProduct);
         }
         return product;

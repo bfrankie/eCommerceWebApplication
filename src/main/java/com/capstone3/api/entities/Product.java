@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Transactional
-@Table(name = "product")
 @Getter @Setter
+@Table(name = "product")
 public class Product {
 
     @Id
@@ -36,6 +36,15 @@ public class Product {
 
     @ManyToOne(targetEntity = Category.class)
     private Category category;
+
+    public void addCategory(Category category) {
+        this.category = category;
+        category.getProducts().add(this);
+    }
+
+    public void removeCategory() {
+        this.category = null;
+    }
 
 
 
