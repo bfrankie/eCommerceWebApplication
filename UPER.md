@@ -36,8 +36,10 @@
 <h2>
     3. Executing the Plan
 </h2>
-*
-*
+<p>Challenge connecting to RDS database</p>
+&nbsp;<p>Solution: Add "inbound" rule to security group that allows connection from "All Traffic"</p>
+<p>Challenge with deploying app to EC2 - caused by "no main manifest attribute".</p>
+&nbsp;<p>Solution: Run mvn install. Upload .jar from target folder to EC2 (NOT .jar.original)</p>
 *
 *
 *
