@@ -40,8 +40,8 @@
 &nbsp;<p>Solution: Add "inbound" rule to security group that allows connection from "All Traffic"</p>
 <p>Challenge with deploying app to EC2 - caused by "no main manifest attribute".</p>
 &nbsp;<p>Solution: Run mvn install. Upload .jar from target folder to EC2 (NOT .jar.original)</p>
-*
-*
+<p>API data being fetched successfuly via browser and Insomnia,  but unable to be fetched in React</p>
+&nbsp;<p>Solution: Add CORS extension to browser to get around HTTP limitations (for the time being)</p>
 *
 *
 *

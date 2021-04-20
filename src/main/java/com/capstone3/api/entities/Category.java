@@ -22,16 +22,4 @@ public class Category {
     @OneToMany(targetEntity = Product.class, mappedBy = "category")
     private List<Product> products;
 
-//    @JsonValue
-//    public List<String> getNameAndProducts() {
-//        List<String> categoryProperties = new ArrayList<>();
-//        categoryProperties.add(this.categoryName);
-//        for(Product p : products) {
-//            categoryProperties.add(p.getTitle());
-//        }
-//        return categoryProperties;
-//    }
-
-
-
 }
