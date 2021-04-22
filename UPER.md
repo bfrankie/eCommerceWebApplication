@@ -42,8 +42,8 @@
 &nbsp;<p>Solution: Run mvn install. Upload .jar from target folder to EC2 (NOT .jar.original)</p>
 <p>API data being fetched successfuly via browser and Insomnia,  but unable to be fetched in React</p>
 &nbsp;<p>Solution: Add CORS extension to browser to get around HTTP limitations (for the time being)</p>
-*
-*
+<p>EC2 database crashes with too much inbound traffic, due to lack of load balancer, resulting in 100% of queries resulting in 500 error</p>
+&nbsp;<p>Solution: Kill all processes making queries to database</p>
 *
 *
 <h2>
