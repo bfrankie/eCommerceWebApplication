@@ -1,5 +1,3 @@
-USE ecommerceDB;
-
 INSERT INTO category
     (category_name)
 VALUES ('Candles'),
