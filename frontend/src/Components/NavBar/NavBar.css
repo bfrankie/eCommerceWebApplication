@@ -1,0 +1,43 @@
+.Nav-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+  }
+  .Nav-bar nav {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .Nav-bar ul {
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+  }
+  
+  .Nav-bar li {
+    font-size: 1.5rem;
+    align-self: center;
+  }
+  
+  .Nav-link {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .Nav-link:hover {
+    font-size: 115%;
+  }
+  
+  .Nav-bar nav > hr {
+    height: 6px;
+    border: none;
+    width: 94%;
+    background-color:#000;
+  }
+  
+  .Cart-icon {
+    height: 10rem;
+  }
