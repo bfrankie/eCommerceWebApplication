@@ -37,7 +37,7 @@
 </h2>
 <p>Challenge connecting to RDS database</p>
 <p>-Solution: Add "inbound" rule to security group that allows connection from "All Traffic"</p>
-<p>Challenge with deploying app to EC2 - caused by "no main manifest attribute".</p>
+<p>Challenge with deploying app to Elastic Beanstalk - caused by "no main manifest attribute".</p>
 <p>-Solution: Run mvn install. Upload .jar from target folder to EC2 (NOT .jar.original)</p>
 <p>API data being fetched successfully via browser and Insomnia,  but unable to be fetched in React</p>
 <p>-Solution: Add CORS extension to browser to get around CORS limitations</p>
