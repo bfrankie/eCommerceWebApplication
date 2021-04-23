@@ -35,7 +35,7 @@ public class Product {
     private int quantity;
 
     @ManyToOne(targetEntity = Category.class)
-//    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id")
     private Category category;
 
     public void addCategory(Category category) {

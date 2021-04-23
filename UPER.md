@@ -12,7 +12,6 @@
 <p>Data should be restructured to follow database modeling best practices </p>
 <p>API should have data persistence layer</p>
 <p>Front-end must be refactored to be effectively wired up with API</p>
-<p> Front-end does not currently allow for different users, which may be desired and should be considered when creating database model</p>
 <p>API should contain full CRUD functionality with appropriate status codes </p>
 &nbsp; -Determine which components require API calls (search, add-to-cart, etc.)
 <p>API should include completed cardinality between entities </p>
