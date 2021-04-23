@@ -20,11 +20,18 @@ export default function SearchBar() {
         searchBar.addEventListener('keyup', (e) => {
             input = e.target.value.toLowerCase()
             searchResults = products.filter (product => {
-            return product.title.toLowerCase().includes(input) ||
+                if(product.category != null ) {
+                    return product.title.toLowerCase().includes(input) ||
             product.details.toLowerCase().includes(input) || 
-            product.category.categoryName.toLowerCase().includes(input) ||
             product.serialNumber.toString().includes(input) ||
-            product.price.toString().includes(input);
+            product.price.toString().includes(input) || product.category.categoryName.toLowerCase().includes(input); 
+                } else {
+                    return product.title.toLowerCase().includes(input) ||
+            product.details.toLowerCase().includes(input) || 
+            product.serialNumber.toString().includes(input) ||
+            product.price.toString().includes(input)
+                }
+            
             })
         });
     });

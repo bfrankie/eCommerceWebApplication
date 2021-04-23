@@ -16,7 +16,7 @@ const ProductDetail = () => {
             ))}
 
             {productDetails.map(item => (
-                <ProductSummary title= {item.title} serialNumber={item.serialNumber} price={item.price} category ={item.category.categoryName} key={item.productID} qty= {item.qantity} item= {item}/>
+                <ProductSummary title= {item.title} serialNumber={item.serialNumber} price={item.price} /*category ={item.category.categoryName}*/ key={item.productID} qty= {item.qantity} item= {item}/>
             ))}
 
             {productDetails.map(item => (
