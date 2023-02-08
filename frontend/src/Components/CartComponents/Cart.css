@@ -1,0 +1,95 @@
+
+/* Shopping Cart View */
+
+.Shopping-cart {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
+.Shopping-cart h1 {
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.Empty-cart-btn {
+    margin-left: 50%;
+    width: 100%;
+    background-color: lightgrey;
+    font-weight: bolder;
+}
+
+    /* Cart Details */
+
+.Cart-details {
+    width: 75vw;
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+
+/* Items in Cart Component */
+
+.Items-in-cart h1 {
+    width: 100%;
+    font-size: 2.5rem;
+}
+
+/* Cart Item Component */
+.Cart-item {
+    border-bottom: 5px solid #000;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Cart-item-img {
+    border: 2px solid #000;
+    width: 20vw;
+    margin-right: 3%;
+}
+
+.Cart-item-summary {
+    padding: 2%;
+    align-self: center;
+    line-height: 3rem;
+    width: 40%;
+}
+
+.Cart-item-summary h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.Cart-item-summary h3 {
+    font-size: 1.2rem;
+}
+
+/* Cart Summary */
+
+.Cart-summary {
+    border: 4px solid #000;
+    width: 20%;
+    height: 20%;
+    text-align: center;
+    padding: 2%;
+}
+
+.Cart-summary h3 {
+    line-height: 300%;
+    font-size: 1.5rem;
+}
+
+.Purchase-btn, .Rmv-from-cart-btn, .Empty-cart-btn, .Add-to-cart-btn {
+    font-family: 'Rozha One', serif;
+    font-size: 1rem;
+    color: #FFF;
+    font-weight: bolder;
+    background-color: #000;
+}

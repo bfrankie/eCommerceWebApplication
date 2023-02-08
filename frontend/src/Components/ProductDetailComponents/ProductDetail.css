@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.Product-detail {
+    width: 75vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-left: 1%;
+    align-items: center;
+}
+  
+    /* Product Summary */
+  .Product-summary {
+    border: 2px solid #000;
+    text-align: center;
+    width:40%;
+    padding-top: 2%;
+    font-size: 1.5rem;
+    line-height: 4rem;
+  
+  }
+  
+  .Serial-number {
+    margin-top: -5%;
+  }
+  
+  .Product-summary h6 {
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .Quantity-label {
+    margin-right: 2%;
+    font-size: 1.3rem;
+  }
+  
+  .Quantity {
+    margin-right: 10%;
+  }
+  
+  .Add-to-cart-btn {
+    width: 30%;
+  }
+  
+    /* Product Gallery */
+  
+  .Product-gallery {
+    width: 43vw;
+    height: 55vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .Main-gallery-img {
+      width: 30vw;
+  }
+
+  .Product-gallery-img {
+    width: 10vw;
+    border: 1.5px solid #000;
+  }
+
+  .Product-gallery-img:hover {
+    opacity: 0.5;
+  }
+  
+    /* Product Description */
+  
+  .Product-description {
+    font-weight: lighter;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Product-description h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 2%;
+  }
+  
+  .Product-description p {
+    line-height: 2rem;
+    font-family: 'Roboto', sans-serif;
+    width: 50vw;
+    align-self: center;
+  }
